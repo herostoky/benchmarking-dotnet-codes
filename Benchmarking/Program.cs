@@ -1,7 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Running;
+using Benchmarking;
 
 Console.WriteLine("Hello, World!");
 
-BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+// BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+BenchmarkRunner.Run<ForAndForeach>();

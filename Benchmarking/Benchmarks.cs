@@ -42,6 +42,13 @@ public class ForAndForeach
     
     [Params(5, 50, 500)]
     public int N { get; set; }
+    private Person[] _persons = [];
+
+    [GlobalSetup]
+    public void Setup()
+    {
+        _persons = GetPersons().ToArray();
+    }
 
     IEnumerable<Person> GetPersons()
     {
@@ -52,11 +59,11 @@ public class ForAndForeach
     public int ForeachLoop()
     {
         var sumAge = 0;
-        foreach (var person in GetPersons())
+        foreach (var person in _persons)
         {
             sumAge += person.Age;
         }
-        Console.WriteLine(sumAge);
+        // Console.WriteLine(sumAge);
         return sumAge;
     }
 
@@ -64,12 +71,11 @@ public class ForAndForeach
     public int ForILoop()
     {
         var sumAge = 0;
-        for (var i = 0; i < GetPersons().Count(); i++)
+        for (var i = 0; i < _persons.Length; i++)
         {
-            var person = GetPersons().ElementAt(i);
-            sumAge += person.Age;
+            sumAge += _persons[i].Age;
         }
-        Console.WriteLine(sumAge);
+        // Console.WriteLine(sumAge);
         return sumAge;
     }
 }

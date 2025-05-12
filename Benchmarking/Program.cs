@@ -6,13 +6,13 @@ Console.WriteLine("Hello, World!");
 // BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
 // BenchmarkRunner.Run<ForAndForeach>();
 
-const string targetHash = "e4203ed6c3a5fea2a530419e3ad92d3f";
-const string filename = "Test_file.json";
+const string targetHash = "f261afe43dc31905d86082b04731f5bb";
+const string filename = "another";
 const string userId = "1422";
 var filenameLower = filename.ToLower();
 var filenameNoExt = filename.Split('.')[0];
 var filenameNoExtLower = filenameNoExt.ToLower();
-var uploadTime = new DateTime(2025, 5, 12, 8, 9, 0);
+var uploadTime = new DateTime(2025, 5, 12, 8, 27, 0);
 
 var dateFormats = new[]
 {
@@ -25,8 +25,8 @@ var dateFormats = new[]
     "dd/MM/yyyy à HH:mm"
 };
 
-var patterns = new[]
-{
+string[] patterns =
+[
     "{0}|{1}|{2}",
     "{0}_{1}_{2}",
     "{2}_{0}_{1}",
@@ -39,8 +39,56 @@ var patterns = new[]
     "{2}|{0}|{1}|upload",
     "{3}|{1}|{2}",
     "{4}|{1}|{2}",
-    "{5}|{1}|{2}"
-};
+    "{5}|{1}|{2}",
+    "{0}|{1}|{2}",
+    "{0}_{1}_{2}",
+    "{2}_{0}_{1}",
+    "{1}|{0}|{2}",
+    "{2}|{1}|{0}",
+    "{2}|{0}",
+    "{0}|{2}",
+    "{2}_{0}",
+    "{0}_{2}",
+    "{2}|{0}|{1}|upload",
+    "{3}|{1}|{2}",
+    "{4}|{1}|{2}",
+    "{5}|{1}|{2}",
+    "{3}_{1}_{2}",
+    "{4}_{1}_{2}",
+    "{5}_{1}_{2}",
+    "{0}|{2}|{1}",
+    "{3}|{2}|{1}",
+    "{4}|{2}|{1}",
+    "{5}|{2}|{1}",
+    "{2}|upload|{0}",
+    "{2}|{0}|file",
+    "{2}_{1}_{0}",
+    "{2}|{4}|{1}",
+    "{4}|{2}",
+    "{2}|{4}",
+    "{2}_{4}",
+    "{4}_{2}",
+    "upload_{2}_{4}_{1}",
+    "{0}|{1}",
+    "{3}|{1}",
+    "{4}|{1}",
+    "{5}|{1}",
+    "{0}_{1}",
+    "{3}_{1}",
+    "{4}_{1}",
+    "{5}_{1}",
+    "{0}_{2}_{1}",
+    "{0}-{1}-{2}",
+    "{3}-{1}-{2}",
+    "{4}-{1}-{2}",
+    "{5}-{1}-{2}",
+    "{2}-{4}-{1}",
+    "{2}-{0}-{1}",
+    "{2}-{0}",
+    "{0}-{2}",
+    "{2}|upload|{0}|{1}",
+    "{2}/{4}/{1}"
+];
 
 foreach (var format in dateFormats)
 {
